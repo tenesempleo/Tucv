@@ -3,294 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV optimizado para portales</title>
+<title>CV que pasa el filtro</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6fb;
-  color: #222;
+:root{
+  --azul:#4b6cff;
+  --verde:#25d366;
+  --gris:#f2f4f8;
+  --texto:#222;
 }
 
-/* HEADER */
-.header {
-  padding: 30px 20px;
-  background: #ffffff;
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background:var(--gris);
+  color:var(--texto);
 }
 
-.header h1 {
-  font-size: 26px;
-  margin-bottom: 10px;
+/* HERO */
+.hero{
+  background:#fff;
+  padding:30px 20px;
 }
 
-.header p {
-  font-size: 15px;
-  color: #555;
+.hero h1{
+  font-size:28px;
+  line-height:1.2;
+  margin:0 0 10px;
 }
 
-.btn-principal {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 14px 22px;
-  background: #4b6cff;
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
+.hero p{
+  color:#555;
+  font-size:15px;
 }
 
-/* SECCIONES */
-.seccion {
-  padding: 20px;
+.btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:14px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
 }
 
-/* TARJETAS */
-.tarjetas {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
+.btn-azul{
+  background:var(--azul);
+  color:#fff;
 }
 
-.tarjeta {
-  background: #fff;
-  border-radius: 14px;
-  padding: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  cursor: pointer;
-  transition: transform 0.2s;
+.btn-wp{
+  background:var(--verde);
+  color:#fff;
 }
 
-.tarjeta:hover {
-  transform: scale(1.02);
+/* BLOQUES */
+.section{
+  padding:20px;
 }
 
-.tarjeta h3 {
-  margin: 0;
-  font-size: 18px;
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  margin-bottom:15px;
 }
 
-.tarjeta p {
-  margin-top: 6px;
-  font-size: 14px;
-  color: #666;
+.card h3{
+  margin:0 0 6px;
+  font-size:17px;
+}
+
+.card p{
+  margin:0;
+  font-size:14px;
+  color:#666;
+}
+
+/* BENEFICIOS (3 juntos) */
+.beneficios{
+  background:#fff;
+  border-radius:18px;
+  padding:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.beneficio{
+  padding:12px 0;
+  border-bottom:1px solid #eee;
+}
+
+.beneficio:last-child{
+  border-bottom:none;
+}
+
+/* GRID DOBLE */
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:15px;
+}
+
+/* BLOQUE DESTACADO */
+.destacado{
+  background:linear-gradient(135deg,#4b6cff,#6b8bff);
+  color:#fff;
+  border-radius:18px;
+  padding:22px;
+}
+
+.destacado p{
+  color:#eef;
 }
 
 /* CTA FINAL */
-.cta {
-  background: #4b6cff;
-  color: #fff;
-  text-align: center;
-  padding: 30px 20px;
+.cta{
+  background:#4b6cff;
+  color:#fff;
+  text-align:center;
+  padding:30px 20px;
 }
 
-.cta a {
-  background: #25d366;
-  color: #fff;
-  padding: 14px 22px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 15px;
+.cta h2{
+  margin:0 0 6px;
 }
 
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
+.cta p{
+  margin:0 0 15px;
+  opacity:.9;
 }
 
-.modal-contenido {
-  background: #fff;
-  padding: 25px;
-  border-radius: 14px;
-  max-width: 90%;
-  text-align: center;
-}
-
-.modal-contenido h2 {
-  margin-top: 0;
-}
-
-.modal-contenido p {
-  font-size: 15px;
-  color: #444;
-}
-
-.btn-wp {
-  display: block;
-  margin: 15px auto;
-  background: #25d366;
-  color: #fff;
-  padding: 12px 18px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.cerrar {
-  background: none;
-  border: none;
-  color: #777;
-  font-size: 14px;
-  margin-top: 10px;
+/* DESKTOP */
+@media(min-width:768px){
+  .grid-2{
+    grid-template-columns:1fr 1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <h1>Tu CV no lo lee una persona.<br>Lo lee un programa.</h1>
-  <p>
-    Las empresas usan sistemas automáticos que filtran CV
-    antes de que una persona los vea.
-  </p>
+<!-- HERO -->
+<section class="hero">
+  <h1>
+    Tu CV no llega a la empresa.<br>
+    Hacemos que pase el filtro.
+  </h1>
+  <p>Las empresas usan sistemas automáticos que filtran CV.</p>
 
-  <a class="btn-principal" href="https://wa.me/541161191341?text=Hola%20quiero%20mejorar%20mi%20CV">
+  <a class="btn btn-azul" href="https://wa.me/541161191341?text=Hola%20quiero%20mejorar%20mi%20CV">
     Mejorar mi CV
   </a>
-</div>
+</section>
 
-<!-- SERVICIOS -->
-<div class="seccion">
-  <div class="tarjetas">
-
-    <div class="tarjeta" onclick="abrir('filtro')">
+<!-- BENEFICIOS -->
+<section class="section">
+  <div class="beneficios">
+    <div class="beneficio">
       <h3>Filtrado automático</h3>
       <p>Los sistemas descartan CV mal armados.</p>
     </div>
-
-    <div class="tarjeta" onclick="abrir('formato')">
+    <div class="beneficio">
       <h3>Formato correcto</h3>
       <p>Tu CV listo para portales de empleo.</p>
     </div>
-
-    <div class="tarjeta" onclick="abrir('portales')">
-      <h3>CV optimizado para portales</h3>
-      <p>Formato que el sistema sí lee.</p>
+    <div class="beneficio">
+      <h3>Más chances reales</h3>
+      <p>Llegás al reclutador, no al descarte.</p>
     </div>
-
-    <div class="tarjeta" onclick="abrir('editable')">
-      <h3>CV editable</h3>
-      <p>Lo usás y modificás cuando quieras.</p>
-    </div>
-
-    <div class="tarjeta" onclick="abrir('perfil')">
-      <h3>Perfil optimizado</h3>
-      <p>Computrabajo y Bumeran completos.</p>
-    </div>
-
-    <div class="tarjeta" onclick="abrir('entrevista')">
-      <h3>Más posibilidades de entrevista</h3>
-      <p>No es solo un CV. Es un sistema.</p>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="section grid-2">
+  <div class="card">
+    <h3>CV optimizado para portales</h3>
+    <p>Formato que el sistema sí lee.</p>
+  </div>
+
+  <div class="card">
+    <h3>Capacitaciones laborales</h3>
+    <p>
+      Operario · Depósito · Limpieza · Atención al cliente.<br>
+      <small>(ideal sin experiencia)</small>
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>CV editable</h3>
+    <p>Lo usás y modificás cuando quieras.</p>
+  </div>
+
+  <div class="card">
+    <h3>Perfil optimizado</h3>
+    <p>Computrabajo y Bumeran completos.</p>
+  </div>
+</section>
+
+<!-- DESTACADO -->
+<section class="section">
+  <div class="destacado">
+    <h3>Más posibilidades de entrevista</h3>
+    <p>
+      No es solo un CV.<br>
+      Es un sistema para <b>pasar el filtro</b>.
+    </p>
+  </div>
+</section>
 
 <!-- CTA FINAL -->
-<div class="cta">
-  <h2>Todo en un solo lugar</h2>
+<section class="cta">
+  <h2>Todo en un solo lugar.</h2>
   <p>Desde tu celular. A tu ritmo.</p>
 
-  <a href="https://wa.me/541161191341?text=Hola%20quiero%20mejorar%20mi%20CV">
+  <a class="btn btn-wp" href="https://wa.me/541161191341">
     WhatsApp 116 119 1341
   </a>
-</div>
-
-<!-- MODALES -->
-<div id="filtro" class="modal">
-  <div class="modal-contenido">
-    <h2>Filtrado automático</h2>
-    <p>
-      Hoy los CV no los revisa una persona primero.
-      Un sistema decide si tu CV pasa o queda descartado.
-    </p>
-    <a class="btn-wp" href="https://wa.me/541161191341">Hablar por WhatsApp</a>
-    <button class="cerrar" onclick="cerrar('filtro')">Cerrar</button>
-  </div>
-</div>
-
-<div id="formato" class="modal">
-  <div class="modal-contenido">
-    <h2>Formato correcto</h2>
-    <p>
-      Usamos un formato compatible con los sistemas
-      que utilizan las empresas y portales de empleo.
-    </p>
-    <a class="btn-wp" href="https://wa.me/541161191341">Hablar por WhatsApp</a>
-    <button class="cerrar" onclick="cerrar('formato')">Cerrar</button>
-  </div>
-</div>
-
-<div id="portales" class="modal">
-  <div class="modal-contenido">
-    <h2>CV optimizado para portales</h2>
-    <p>
-      Ideal para Computrabajo, Bumeran y otros portales
-      donde el CV pasa primero por un sistema automático.
-    </p>
-    <a class="btn-wp" href="https://wa.me/541161191341">Hablar por WhatsApp</a>
-    <button class="cerrar" onclick="cerrar('portales')">Cerrar</button>
-  </div>
-</div>
-
-<div id="editable" class="modal">
-  <div class="modal-contenido">
-    <h2>CV editable</h2>
-    <p>
-      Te entregamos el CV para que lo puedas usar,
-      modificar y adaptar cuando lo necesites.
-    </p>
-    <a class="btn-wp" href="https://wa.me/541161191341">Hablar por WhatsApp</a>
-    <button class="cerrar" onclick="cerrar('editable')">Cerrar</button>
-  </div>
-</div>
-
-<div id="perfil" class="modal">
-  <div class="modal-contenido">
-    <h2>Perfil optimizado</h2>
-    <p>
-      Armamos o mejoramos tu perfil en portales
-      para aumentar tus posibilidades reales.
-    </p>
-    <a class="btn-wp" href="https://wa.me/541161191341">Hablar por WhatsApp</a>
-    <button class="cerrar" onclick="cerrar('perfil')">Cerrar</button>
-  </div>
-</div>
-
-<div id="entrevista" class="modal">
-  <div class="modal-contenido">
-    <h2>Más entrevistas</h2>
-    <p>
-      No es solo un CV lindo.
-      Es un sistema pensado para pasar el filtro.
-      Ideal incluso sin experiencia.
-    </p>
-    <a class="btn-wp" href="https://wa.me/541161191341">Hablar por WhatsApp</a>
-    <button class="cerrar" onclick="cerrar('entrevista')">Cerrar</button>
-  </div>
-</div>
-
-<script>
-function abrir(id) {
-  document.getElementById(id).style.display = "flex";
-}
-function cerrar(id) {
-  document.getElementById(id).style.display = "none";
-}
-</script>
+</section>
 
 </body>
-</html>
+    </html>
