@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- FORZAR ESCRITORIO EN CELULAR -->
+<!-- ESCRITORIO FORZADO (CELULAR = DESKTOP) -->
 <meta name="viewport" content="width=1200">
 
 <title>CV que pasa el filtro</title>
@@ -11,102 +11,27 @@
 <style>
 body{
   margin:0;
-  font-family: system-ui, Arial, sans-serif;
-  background:#eef1f6;
-  color:#222;
+  background:#e9edf3;
+  font-family: Arial, sans-serif;
 }
 
-/* CONTENEDOR GENERAL */
-.container{
+.wrapper{
   width:1200px;
   margin:0 auto;
+  position:relative;
 }
 
-/* HERO */
-.hero{
-  background:#fff;
-  padding:60px;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:50px;
-  align-items:center;
-}
-
-.hero h1{
-  font-size:42px;
-  line-height:1.15;
-  margin:0 0 12px;
-}
-
-.hero p{
-  color:#555;
-  max-width:480px;
-}
-
-.hero img{
+.base{
   width:100%;
-  border-radius:20px;
+  display:block;
 }
 
-/* BOTONES */
-.btn{
-  display:inline-block;
-  padding:14px 28px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
-}
-
-.btn-azul{background:#4b6cff;color:#fff;}
-.btn-wp{background:#25d366;color:#fff;}
-
-/* SECCIONES */
-.section{
-  padding:40px 60px;
-}
-
-/* BENEFICIOS */
-.beneficios{
-  background:#fff;
-  border-radius:24px;
-  padding:30px;
-  display:grid;
-  grid-template-columns: repeat(3,1fr);
-  gap:30px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.beneficio{
+/* ZONAS CLICKEABLES */
+.zone{
+  position:absolute;
   cursor:pointer;
-}
-
-/* SERVICIOS */
-.grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:30px;
-}
-
-.card{
-  background:#fff;
-  border-radius:22px;
-  padding:26px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-  cursor:pointer;
-}
-
-.destacado{
-  background:linear-gradient(135deg,#4b6cff,#6b8bff);
-  color:#fff;
-}
-
-/* CTA */
-.cta{
-  text-align:center;
-  padding:60px;
+  /* activar para ajustar al píxel */
+  /* border:2px solid red; */
 }
 
 /* MODAL */
@@ -114,7 +39,7 @@ body{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.6);
+  background:rgba(0,0,0,.65);
   z-index:999;
   align-items:center;
   justify-content:center;
@@ -122,100 +47,105 @@ body{
 
 .modal-box{
   background:#fff;
-  border-radius:22px;
-  padding:32px;
-  width:540px;
+  width:560px;
   max-height:85vh;
   overflow:auto;
+  padding:32px;
+  border-radius:22px;
+}
+
+.modal-box h2{
+  margin-top:0;
+}
+
+.btn-wp{
+  display:inline-block;
+  margin-top:18px;
+  padding:14px 28px;
+  border-radius:30px;
+  background:#25d366;
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
 }
 
 .close{
-  margin-top:20px;
+  margin-top:16px;
   background:none;
   border:none;
   cursor:pointer;
+  font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-grid">
-    <div>
-      <h1>Tu CV no lo lee una persona.<br>Lo lee un programa.</h1>
-      <p>Las empresas usan sistemas automáticos que filtran CV.</p>
-      <a class="btn btn-azul" href="https://wa.me/541161191341">Mejorar mi CV</a>
-    </div>
-    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-  </div>
-</section>
+  <!-- IMAGEN BASE (DISEÑO EXACTO) -->
+  <img src="diseño.png" class="base">
 
-<!-- BENEFICIOS -->
-<section class="section">
-  <div class="beneficios">
-    <div class="beneficio" onclick="openModal('filtrado')">
-      <h3>Filtrado automático</h3>
-      <p>Los sistemas descartan CV mal armados.</p>
-    </div>
-    <div class="beneficio" onclick="openModal('formato')">
-      <h3>Formato correcto</h3>
-      <p>Tu CV listo para portales.</p>
-    </div>
-    <div class="beneficio" onclick="openModal('chances')">
-      <h3>Más chances reales</h3>
-      <p>Llegás al reclutador.</p>
-    </div>
-  </div>
-</section>
+  <!-- BOTÓN MEJORAR MI CV -->
+  <div class="zone"
+       style="top:360px; left:120px; width:260px; height:60px"
+       onclick="window.open('https://wa.me/541161191341','_blank')"></div>
 
-<!-- SERVICIOS -->
-<section class="section grid">
-  <div class="card" onclick="openModal('portales')">
-    <h3>CV optimizado para portales</h3>
-    <p>Formato que el sistema sí lee.</p>
-  </div>
+  <!-- FILTRADO AUTOMÁTICO -->
+  <div class="zone"
+       style="top:540px; left:80px; width:320px; height:140px"
+       onclick="openModal('filtrado')"></div>
 
-  <div class="card destacado" onclick="openModal('entrevista')">
-    <h3>Más posibilidades de entrevista</h3>
-    <p>No es solo un CV. Es un sistema para pasar el filtro.</p>
-  </div>
+  <!-- FORMATO CORRECTO -->
+  <div class="zone"
+       style="top:540px; left:440px; width:320px; height:140px"
+       onclick="openModal('formato')"></div>
 
-  <div class="card" onclick="openModal('editable')">
-    <h3>CV editable</h3>
-    <p>Lo usás y modificás cuando quieras.</p>
-  </div>
+  <!-- MÁS CHANCES -->
+  <div class="zone"
+       style="top:540px; left:800px; width:320px; height:140px"
+       onclick="openModal('chances')"></div>
 
-  <div class="card" onclick="openModal('perfil')">
-    <h3>Perfil optimizado</h3>
-    <p>Computrabajo y Bumeran completos.</p>
-  </div>
-</section>
+  <!-- CV OPTIMIZADO -->
+  <div class="zone"
+       style="top:740px; left:80px; width:500px; height:140px"
+       onclick="openModal('portales')"></div>
 
-<!-- CTA -->
-<section class="cta">
-  <h2>Todo en un solo lugar.</h2>
-  <p>Desde tu celular. A tu ritmo.</p>
-  <a class="btn btn-wp" href="https://wa.me/541161191341">WhatsApp 116 119 1341</a>
-</section>
+  <!-- CAPACITACIONES -->
+  <div class="zone"
+       style="top:740px; left:620px; width:500px; height:140px"
+       onclick="openModal('capacitaciones')"></div>
+
+  <!-- CV EDITABLE -->
+  <div class="zone"
+       style="top:920px; left:80px; width:500px; height:140px"
+       onclick="openModal('editable')"></div>
+
+  <!-- PERFIL OPTIMIZADO -->
+  <div class="zone"
+       style="top:920px; left:620px; width:500px; height:140px"
+       onclick="openModal('perfil')"></div>
+
+  <!-- BLOQUE AZUL ENTREVISTAS -->
+  <div class="zone"
+       style="top:1100px; left:620px; width:500px; height:160px"
+       onclick="openModal('entrevista')"></div>
 
 </div>
 
-<!-- MODALES (EXPLICACIONES LARGAS) -->
+<!-- ================= MODALES ================= -->
+
 <div class="modal" id="modal-filtrado">
   <div class="modal-box">
     <h2>Filtrado automático</h2>
     <p>
-      Hoy las empresas utilizan sistemas automáticos (ATS) que analizan los CV
-      antes de que una persona los vea.  
+      Hoy las empresas utilizan sistemas automáticos (ATS) que analizan
+      los CV antes de que una persona los vea.
       <br><br>
-      Estos sistemas revisan formato, estructura, palabras clave y orden de la información.
+      Revisan formato, estructura, palabras clave y orden de la información.
       Si el CV no cumple con esos criterios, queda descartado automáticamente.
     </p>
-    <a class="btn btn-wp" href="https://wa.me/541161191341">Consultar</a>
+    <a class="btn-wp" href="https://wa.me/541161191341">Consultar</a>
     <button class="close" onclick="closeModal()">Cerrar</button>
   </div>
 </div>
@@ -224,13 +154,12 @@ body{
   <div class="modal-box">
     <h2>Formato correcto</h2>
     <p>
-      Muchos CV no fallan por falta de experiencia,
-      sino por usar diseños que los sistemas no pueden leer.
+      Muchos CV son descartados por usar columnas, colores o diseños
+      que los sistemas no pueden leer.
       <br><br>
-      El formato correcto evita columnas, gráficos e íconos innecesarios
-      y permite que el sistema interprete bien la información.
+      El formato correcto es limpio, claro y compatible con portales de empleo.
     </p>
-    <a class="btn btn-wp" href="https://wa.me/541161191341">Consultar</a>
+    <a class="btn-wp" href="https://wa.me/541161191341">Consultar</a>
     <button class="close" onclick="closeModal()">Cerrar</button>
   </div>
 </div>
@@ -239,12 +168,13 @@ body{
   <div class="modal-box">
     <h2>Más chances reales</h2>
     <p>
-      Al pasar el filtro automático, el CV llega a una persona real.
+      Cuando el CV pasa el filtro automático,
+      llega a una persona real.
       <br><br>
-      Esto aumenta significativamente las posibilidades
-      de ser llamado a entrevista.
+      Esto aumenta considerablemente
+      las posibilidades de entrevista.
     </p>
-    <a class="btn btn-wp" href="https://wa.me/541161191341">Consultar</a>
+    <a class="btn-wp" href="https://wa.me/541161191341">Consultar</a>
     <button class="close" onclick="closeModal()">Cerrar</button>
   </div>
 </div>
@@ -253,11 +183,33 @@ body{
   <div class="modal-box">
     <h2>CV optimizado para portales</h2>
     <p>
-      El CV está preparado específicamente para portales
-      como Computrabajo y Bumeran,
+      El CV está preparado específicamente
+      para portales como Computrabajo y Bumeran,
       respetando cómo leen y clasifican candidatos.
     </p>
-    <a class="btn btn-wp" href="https://wa.me/541161191341">Consultar</a>
+    <a class="btn-wp" href="https://wa.me/541161191341">Consultar</a>
+    <button class="close" onclick="closeModal()">Cerrar</button>
+  </div>
+</div>
+
+<div class="modal" id="modal-capacitaciones">
+  <div class="modal-box">
+    <h2>Capacitaciones laborales</h2>
+    <p>
+      Pensadas para personas sin experiencia
+      o que necesitan reforzar su perfil laboral.
+      <br><br>
+      Orientadas a puestos reales:
+      <br><br>
+      • Operario de producción<br>
+      • Depósito y logística<br>
+      • Limpieza<br>
+      • Atención al cliente
+      <br><br>
+      Suman valor real al CV
+      y mejoran las posibilidades de entrevista.
+    </p>
+    <a class="btn-wp" href="https://wa.me/541161191341">Consultar</a>
     <button class="close" onclick="closeModal()">Cerrar</button>
   </div>
 </div>
@@ -266,11 +218,12 @@ body{
   <div class="modal-box">
     <h2>CV editable</h2>
     <p>
-      El CV es completamente editable,
-      para que puedas adaptarlo a distintos trabajos
-      sin depender de terceros.
+      El CV es tuyo.
+      <br><br>
+      Podés modificarlo y adaptarlo
+      a distintos trabajos cuando quieras.
     </p>
-    <a class="btn btn-wp" href="https://wa.me/541161191341">Consultar</a>
+    <a class="btn-wp" href="https://wa.me/541161191341">Consultar</a>
     <button class="close" onclick="closeModal()">Cerrar</button>
   </div>
 </div>
@@ -280,10 +233,10 @@ body{
     <h2>Perfil optimizado</h2>
     <p>
       Se optimizan tus perfiles en portales
-      para que estén completos, visibles
-      y alineados con búsquedas reales.
+      para que estén completos,
+      visibles y alineados con búsquedas reales.
     </p>
-    <a class="btn btn-wp" href="https://wa.me/541161191341">Consultar</a>
+    <a class="btn-wp" href="https://wa.me/541161191341">Consultar</a>
     <button class="close" onclick="closeModal()">Cerrar</button>
   </div>
 </div>
@@ -294,11 +247,11 @@ body{
     <p>
       No es solo un CV.
       <br><br>
-      Es un sistema pensado para personas
-      con o sin experiencia que necesitan
-      pasar el filtro y conseguir entrevistas reales.
+      Es un sistema completo pensado
+      para pasar el filtro automático
+      y conseguir entrevistas reales.
     </p>
-    <a class="btn btn-wp" href="https://wa.me/541161191341">Consultar</a>
+    <a class="btn-wp" href="https://wa.me/541161191341">Consultar</a>
     <button class="close" onclick="closeModal()">Cerrar</button>
   </div>
 </div>
@@ -313,4 +266,4 @@ function closeModal(){
 </script>
 
 </body>
-</html>
+  </html>
