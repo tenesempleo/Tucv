@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV optimizado para portales</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+  color: #222;
+}
+
+/* HEADER */
+.header {
+  padding: 30px 20px;
+  background: #ffffff;
+}
+
+.header h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 15px;
+  color: #555;
+}
+
+.btn-principal {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 14px 22px;
+  background: #4b6cff;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* SECCIONES */
+.seccion {
+  padding: 20px;
+}
+
+/* TARJETAS */
+.tarjetas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.tarjeta {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.tarjeta:hover {
+  transform: scale(1.02);
+}
+
+.tarjeta h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.tarjeta p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* CTA FINAL */
+.cta {
+  background: #4b6cff;
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.cta a {
+  background: #25d366;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-contenido {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.modal-contenido h2 {
+  margin-top: 0;
+}
+
+.modal-contenido p {
+  font-size: 15px;
+  color: #444;
+}
+
+.btn-wp {
+  display: block;
+  margin: 15px auto;
+  background: #25d366;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cerrar {
+  background: none;
+  border: none;
+  color: #777;
+  font-size: 14px;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Tu CV no lo lee una persona.<br>Lo lee un programa.</h1>
+  <p>
+    Las empresas usan sistemas automáticos que filtran CV
+    antes de que una persona los vea.
+  </p>
+
+  <a class="btn-principal" href="https://wa.me/541161191341?text=Hola%20quiero%20mejorar%20mi%20CV">
+    Mejorar mi CV
+  </a>
+</div>
+
+<!-- SERVICIOS -->
+<div class="seccion">
+  <div class="tarjetas">
+
+    <div class="tarjeta" onclick="abrir('filtro')">
+      <h3>Filtrado automático</h3>
+      <p>Los sistemas descartan CV mal armados.</p>
+    </div>
+
+    <div class="tarjeta" onclick="abrir('formato')">
+      <h3>Formato correcto</h3>
+      <p>Tu CV listo para portales de empleo.</p>
+    </div>
+
+    <div class="tarjeta" onclick="abrir('portales')">
+      <h3>CV optimizado para portales</h3>
+      <p>Formato que el sistema sí lee.</p>
+    </div>
+
+    <div class="tarjeta" onclick="abrir('editable')">
+      <h3>CV editable</h3>
+      <p>Lo usás y modificás cuando quieras.</p>
+    </div>
+
+    <div class="tarjeta" onclick="abrir('perfil')">
+      <h3>Perfil optimizado</h3>
+      <p>Computrabajo y Bumeran completos.</p>
+    </div>
+
+    <div class="tarjeta" onclick="abrir('entrevista')">
+      <h3>Más posibilidades de entrevista</h3>
+      <p>No es solo un CV. Es un sistema.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta">
+  <h2>Todo en un solo lugar</h2>
+  <p>Desde tu celular. A tu ritmo.</p>
+
+  <a href="https://wa.me/541161191341?text=Hola%20quiero%20mejorar%20mi%20CV">
+    WhatsApp 116 119 1341
+  </a>
+</div>
+
+<!-- MODALES -->
+<div id="filtro" class="modal">
+  <div class="modal-contenido">
+    <h2>Filtrado automático</h2>
+    <p>
+      Hoy los CV no los revisa una persona primero.
+      Un sistema decide si tu CV pasa o queda descartado.
+    </p>
+    <a class="btn-wp" href="https://wa.me/541161191341">Hablar por WhatsApp</a>
+    <button class="cerrar" onclick="cerrar('filtro')">Cerrar</button>
+  </div>
+</div>
+
+<div id="formato" class="modal">
+  <div class="modal-contenido">
+    <h2>Formato correcto</h2>
+    <p>
+      Usamos un formato compatible con los sistemas
+      que utilizan las empresas y portales de empleo.
+    </p>
+    <a class="btn-wp" href="https://wa.me/541161191341">Hablar por WhatsApp</a>
+    <button class="cerrar" onclick="cerrar('formato')">Cerrar</button>
+  </div>
+</div>
+
+<div id="portales" class="modal">
+  <div class="modal-contenido">
+    <h2>CV optimizado para portales</h2>
+    <p>
+      Ideal para Computrabajo, Bumeran y otros portales
+      donde el CV pasa primero por un sistema automático.
+    </p>
+    <a class="btn-wp" href="https://wa.me/541161191341">Hablar por WhatsApp</a>
+    <button class="cerrar" onclick="cerrar('portales')">Cerrar</button>
+  </div>
+</div>
+
+<div id="editable" class="modal">
+  <div class="modal-contenido">
+    <h2>CV editable</h2>
+    <p>
+      Te entregamos el CV para que lo puedas usar,
+      modificar y adaptar cuando lo necesites.
+    </p>
+    <a class="btn-wp" href="https://wa.me/541161191341">Hablar por WhatsApp</a>
+    <button class="cerrar" onclick="cerrar('editable')">Cerrar</button>
+  </div>
+</div>
+
+<div id="perfil" class="modal">
+  <div class="modal-contenido">
+    <h2>Perfil optimizado</h2>
+    <p>
+      Armamos o mejoramos tu perfil en portales
+      para aumentar tus posibilidades reales.
+    </p>
+    <a class="btn-wp" href="https://wa.me/541161191341">Hablar por WhatsApp</a>
+    <button class="cerrar" onclick="cerrar('perfil')">Cerrar</button>
+  </div>
+</div>
+
+<div id="entrevista" class="modal">
+  <div class="modal-contenido">
+    <h2>Más entrevistas</h2>
+    <p>
+      No es solo un CV lindo.
+      Es un sistema pensado para pasar el filtro.
+      Ideal incluso sin experiencia.
+    </p>
+    <a class="btn-wp" href="https://wa.me/541161191341">Hablar por WhatsApp</a>
+    <button class="cerrar" onclick="cerrar('entrevista')">Cerrar</button>
+  </div>
+</div>
+
+<script>
+function abrir(id) {
+  document.getElementById(id).style.display = "flex";
+}
+function cerrar(id) {
+  document.getElementById(id).style.display = "none";
+}
+</script>
+
+</body>
+</html>
